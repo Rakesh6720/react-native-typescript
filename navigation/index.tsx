@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 import HomeScreen from "../screens/HomeScreen";
@@ -13,11 +14,21 @@ export default function Navigation() {
 }
 
 const Stack = createNativeStackNavigator();
+const BottomTab = createBottomTabNavigator();
+
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Planner" component={PlannerScreen} />
+    <Stack.Navigator>
+      <Stack.Screen name="Root" component={BottomTabNavigator} />
     </Stack.Navigator>
+  );
+}
+
+function BottomTabNavigator() {
+  return (
+    <BottomTab.Navigator initialRouteName="Home">
+      <BottomTab.Screen name="Home" component={HomeScreen} />
+      <BottomTab.Screen name="Planner" component={PlannerScreen} />
+    </BottomTab.Navigator>
   );
 }
