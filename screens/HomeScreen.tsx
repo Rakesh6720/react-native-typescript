@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Button, Text, View } from "react-native";
+import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen({ navigation }: NativeStackHeaderProps) {
   useEffect(() => {
     console.log("rendering home screen");
   }, []);
