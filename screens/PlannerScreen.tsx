@@ -5,6 +5,7 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 export default function PlannerScreen({ navigation }: NativeStackHeaderProps) {
   useEffect(() => {
     console.log("rendering planner screen");
+    return () => console.log("Unmounting planner screen");
   }, []);
 
   return (

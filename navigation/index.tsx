@@ -19,7 +19,11 @@ const BottomTab = createBottomTabNavigator();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen
+        name="Root"
+        component={BottomTabNavigator}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -27,8 +31,16 @@ function RootNavigator() {
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator initialRouteName="Home">
-      <BottomTab.Screen name="Home" component={HomeScreen} />
-      <BottomTab.Screen name="Planner" component={PlannerScreen} />
+      <BottomTab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ unmountOnBlur: true }}
+      />
+      <BottomTab.Screen
+        name="Planner"
+        component={PlannerScreen}
+        options={{ unmountOnBlur: true }}
+      />
     </BottomTab.Navigator>
   );
 }

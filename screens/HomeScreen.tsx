@@ -5,6 +5,7 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 export default function HomeScreen({ navigation }: NativeStackHeaderProps) {
   useEffect(() => {
     console.log("rendering home screen");
+    return () => console.log("Unmounting home screen");
   }, []);
   return (
     <View>
@@ -12,7 +13,7 @@ export default function HomeScreen({ navigation }: NativeStackHeaderProps) {
       <Button
         title="Go to planner"
         onPress={() => {
-          navigation.push("Planner");
+          navigation.navigate("Planner");
         }}
       ></Button>
     </View>
