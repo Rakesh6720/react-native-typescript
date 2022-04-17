@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
+import data from "../data.json";
+import { containsKey, getData, storeData } from "../storage";
+import { clearWorkouts, getWorkouts, initWorkouts } from "../storage/workout";
 
 export default function useCacheResources() {
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
@@ -7,6 +10,7 @@ export default function useCacheResources() {
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
+        await initWorkouts();
         await Font.loadAsync({
           montserrat: require("../assets/fonts/Montserrat-Regular.ttf"),
           "montserrat-bold": require("../assets/fonts/Montserrat-Bold.ttf"),
